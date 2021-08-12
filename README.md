@@ -6,7 +6,8 @@ Another use case would be taking a project with a database and no migrations and
 
 # Installation
 ```bash
-composer require --dev bennett-treptow/laravel-migration-generator
+composer config repositories.bennett-treptow/laravel-migration-generator vcs https://github.com/nacl30d/laravel-migration-generator
+composer require --dev bennett-treptow/laravel-migration-generator:dev-main
 ```
 
 ```bash
