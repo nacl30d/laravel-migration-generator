@@ -47,6 +47,12 @@ You can also clear the directory with the `--empty-path` option:
 php artisan generate:migrations --empty-path
 ```
 
+By default, timestamp column exported as `->timestamps()` whether datetime or timestamp. To use datetime, you can specify `LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP` option:
+
+``` bash
+LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP=true php artisan generate:migrations --path=database/migrations
+```
+
 This command can also be run by setting the `LMG_RUN_AFTER_MIGRATIONS` environment variable to `true` and running your migrations as normal. This will latch into the `MigrationsEnded` event and run this command using the default options specified via your environment variables. Note: it will only run when your app environment is set to `local`.
 
 # Configuration
@@ -70,6 +76,8 @@ Want to customize the migration stubs? Make sure you've published the vendor ass
 | LMG_USE_DEFINED_FOREIGN_KEY_INDEX_NAMES | true | boolean | When true, uses foreign key index names defined by the database as the name parameter for foreign key methods |
 | LMG_USE_DEFINED_UNIQUE_KEY_INDEX_NAMES | true | boolean | When true, uses unique key index names defined by the database as the name parameter for the `unique` methods |
 | LMG_USE_DEFINED_PRIMARY_KEY_INDEX_NAMES | true | boolean | When true, uses primary key index name defined by the database as the name parameter for the `primary` method |
+| LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP | false | boolean | When false, uses `->timestamps()` by mashing up `created_at` and `updated_at` regardless of  datatype defined by the database |
+| LMG_WITH_COMMENTS | true | boolean | When true, export comment using `->comment()` method. |
 | LMG_MYSQL_TABLE_NAMING_SCHEME | null | ?boolean | When not null, this setting will override LMG_TABLE_NAMING_SCHEME when the database driver is `mysql`. |
 | LMG_MYSQL_VIEW_NAMING_SCHEME | null | ?boolean | When not null, this setting will override LMG_VIEW_NAMING_SCHEME when the database driver is `mysql`. |
 | LMG_MYSQL_OUTPUT_PATH | null | ?boolean | When not null, this setting will override LMG_OUTPUT_PATH when the database driver is `mysql`. |
