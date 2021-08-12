@@ -1,3 +1,11 @@
+# Differences from original
+### New Modifire
+* `LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP` option has been implemented
+  * When true, use defined datatype on `created_at` and `updated_at`
+  * When false (default), `created_at` and `updated_at` are mashed up to `->timestamps()` even if defined as datetime
+* `LMG_WITH_COMMENT` option has been implemented
+  * When true, export comment as `->comment()` method
+
 # Version 3.1.6
 ### New Modifier
 `useCurrentOnUpdate` has been implemented

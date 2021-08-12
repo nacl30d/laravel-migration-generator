@@ -47,6 +47,12 @@ You can also clear the directory with the `--empty-path` option:
 php artisan generate:migrations --empty-path
 ```
 
+By default, timestamp column exported as `->timestamps()` whether datetime or timestamp. To use datetime, you can specify `LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP` option:
+
+``` bash
+LMG_USE_DEFINED_DATATYPE_ON_TIMESTAMP=true php artisan generate:migrations --path=database/migrations
+```
+
 This command can also be run by setting the `LMG_RUN_AFTER_MIGRATIONS` environment variable to `true` and running your migrations as normal. This will latch into the `MigrationsEnded` event and run this command using the default options specified via your environment variables. Note: it will only run when your app environment is set to `local`.
 
 # Configuration
