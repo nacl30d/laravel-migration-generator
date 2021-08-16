@@ -38,17 +38,13 @@ class ColumnTokenizer extends BaseColumnTokenizer
             $this->consumeKeyConstraints();
         }
 
-        $this->consumeComment();
-
         $this->consumeGenerated();
 
-        if ($this->columnDataType == 'timestamp') {
+        if ($this->columnDataType == 'timestamp' || $this->columnDataType == 'datetime') {
             $this->consumeTimestamp();
         }
 
-        if ($this->columnDataType == 'timestamp') {
-            $this->consumeTimestamp();
-        }
+        $this->consumeComment();
 
         return $this;
     }
